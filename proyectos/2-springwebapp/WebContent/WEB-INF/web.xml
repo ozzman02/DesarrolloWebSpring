@@ -26,6 +26,7 @@
   	<param-name>contextConfigLocation</param-name>
   	<param-value>
   		classpath:com/novellius/config/persistence-context.xml
+  		classpath:com/novellius/config/service-context.xml
   	</param-value>
   </context-param>
   <resource-ref>
