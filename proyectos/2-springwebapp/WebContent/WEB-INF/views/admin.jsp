@@ -25,6 +25,7 @@
 					<td><input type="submit" value="Guardar cambios"/></td>
 				</tr>
 			</table>
-		</sf:form>
+		</sf:form><br/>
+		<c:out value="${resultado}"></c:out>
 	</body>
 </html>
