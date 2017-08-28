@@ -2,7 +2,9 @@ package com.novellius.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.novellius.pojo.Admin;
 
@@ -15,5 +17,13 @@ public class AdminController {
 		model.addAttribute("admin", admin);
 		return "admin";
 	}
+	
+	@RequestMapping(value = "/admin/save", method = RequestMethod.POST)
+	public String handleAdmin(@ModelAttribute("admin") Admin adminForm, Model model) {
+		model.addAttribute("adminForm", adminForm);
+		return "index";
+	}
+	
+	
 	
 }

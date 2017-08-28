@@ -9,10 +9,12 @@
 	<body>
 		<h1>Index.jsp</h1>
 		<a href='<c:url value="/about" />'>Acerca de</a><br/>
-		<a href='<c:url value="/admin" />'>Admin</a><br/>
+		<a href='<c:url value="/admin" />'>Gestionar administradores</a><br/><br/>
 		
-		Attributos del Model: <c:out value="${mensaje}"></c:out><br/>
-		Attributos en Session: <c:out value="${sessionScope.resultado}"></c:out>
+		<!--  Attributos del Model: <c:out value="${mensaje}"></c:out><br/>
+		Attributos en Session: <c:out value="${sessionScope.resultado}"></c:out> -->
+		
+		<c:out value="${adminForm}"></c:out><br/>
 		
 	</body>
 </html>
