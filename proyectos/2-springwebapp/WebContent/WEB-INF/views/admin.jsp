@@ -13,6 +13,8 @@
 		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 			<table>
 				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
+				<sf:input path="idAd" type="hidden"/>
+				<sf:input path="fechaCreacion" type="hidden"/>
 				<tr>
 					<td>Nombre</td>
 					<td><sf:input path="nombre" type="text"/></td>
@@ -29,7 +31,8 @@
 		</sf:form><br/>
 		<c:out value="${resultado}"></c:out><br/><br/>
 		<c:forEach items="${admins}" var="admin">
-			<c:out value="${admin}"></c:out><br/>
+			<c:out value="${admin}"></c:out>
+			<a href='<c:url value="/admin/${admin.idAd}/update" />'>Actualizar</a><br/>
 		</c:forEach>
 	</body>
 </html>
