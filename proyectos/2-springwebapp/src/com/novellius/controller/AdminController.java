@@ -1,12 +1,13 @@
 package com.novellius.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.novellius.pojo.Admin;
@@ -20,9 +21,13 @@ public class AdminController {
 	
 	@RequestMapping("/admin")
 	public String showAdmin(Model model, @ModelAttribute("resultado") String resultado) {
+		
+		List<Admin> admins = adminService.findAll();	
 		Admin admin = new Admin();
 		model.addAttribute("admin", admin);
 		model.addAttribute("resultado", resultado);
+		model.addAttribute("admins", admins);
+		
 		return "admin";
 	}
 
@@ -33,7 +38,7 @@ public class AdminController {
 			/*
 			 *	El atributo persiste a la hora de redireccionar 
 			 */
-			ra.addFlashAttribute("resultado", "Cambios realizados con exito");
+			ra.addFlashAttribute("resultado", "Cambios realizados con éxito !!!");
 		} else {
 			ra.addFlashAttribute("resultado", "Error al realizar los cambios");
 		}

@@ -27,6 +27,9 @@
 				</tr>
 			</table>
 		</sf:form><br/>
-		<c:out value="${resultado}"></c:out>
+		<c:out value="${resultado}"></c:out><br/><br/>
+		<c:forEach items="${admins}" var="admin">
+			<c:out value="${admin}"></c:out><br/>
+		</c:forEach>
 	</body>
 </html>
