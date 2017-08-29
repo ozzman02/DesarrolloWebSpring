@@ -35,7 +35,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/save", method = RequestMethod.POST)
 	public String handleAdmin(@ModelAttribute("admin") Admin adminForm, Model model, RedirectAttributes ra) {
 		
-		if (adminService.save(adminForm)) {
+		if (adminService.saveOrUpdate(adminForm)) {
 			/*
 			 *	El atributo persiste a la hora de redireccionar 
 			 */

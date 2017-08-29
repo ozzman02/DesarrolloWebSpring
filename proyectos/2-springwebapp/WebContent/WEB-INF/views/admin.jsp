@@ -13,8 +13,10 @@
 		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 			<table>
 				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
-				<sf:input path="idAd" type="hidden"/>
-				<sf:input path="fechaCreacion" type="hidden"/>
+				<c:if test="${admin.idAd ne 0 }">
+					<sf:input path="idAd" type="hidden"/>
+					<sf:input path="fechaCreacion" type="hidden"/>
+				</c:if>
 				<tr>
 					<td>Nombre</td>
 					<td><sf:input path="nombre" type="text"/></td>

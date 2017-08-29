@@ -28,5 +28,13 @@ public class AdminService {
 	public Admin findById(int id) {
 		return adminDao.findById(id);
 	}
+
+	public boolean saveOrUpdate(Admin admin) {
+		if (admin.getIdAd() == 0) {
+			return save(admin);
+		} else {
+			return adminDao.update(admin);
+		}
+	}
 	
 }
