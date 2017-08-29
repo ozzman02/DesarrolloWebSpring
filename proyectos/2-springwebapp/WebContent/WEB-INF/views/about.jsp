@@ -8,8 +8,8 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>Admin.jsp</h1>
-		Attributos del Model: <c:out value="${mensaje}"></c:out><br/>
-		Attributos en Session: <c:out value="${sessionScope.resultado}"></c:out>
+		<h1>About.jsp</h1>
+		<!--  Attributos del Model: <c:out value="${mensaje}"></c:out><br/>
+		Attributos en Session: <c:out value="${sessionScope.resultado}"></c:out> -->
 	</body>
 </html>

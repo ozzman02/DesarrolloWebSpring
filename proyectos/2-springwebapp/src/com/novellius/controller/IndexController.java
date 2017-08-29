@@ -11,12 +11,12 @@ import org.springframework.web.bind.support.SessionStatus;
  * @SessionAttributes({"resultado", "mensaje"})
  */
 @Controller
-@SessionAttributes("resultado")
+//@SessionAttributes("resultado")
 public class IndexController {
 
 	@RequestMapping("/")
 	public String showIndex(Model model) {
-		model.addAttribute("resultado", "Resultado desde Session");
+		//model.addAttribute("resultado", "Resultado desde Session");
 		return "index";
 	}
 	
