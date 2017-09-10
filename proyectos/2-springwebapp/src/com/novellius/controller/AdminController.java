@@ -54,4 +54,14 @@ public class AdminController {
 		return "admin";
 	}
 	
+	@RequestMapping("/admin/{idAd}/delete")
+	public String delete(@PathVariable("idAd") int idAd, RedirectAttributes ra) {
+		if (adminService.delete(idAd)) {
+			ra.addFlashAttribute("resultado", "Cambios realizados con éxito !!!");
+		} else {
+			ra.addFlashAttribute("resultado", "Error al realizar los cambios");
+		}
+		return "redirect:/admin";
+	}
+	
 }

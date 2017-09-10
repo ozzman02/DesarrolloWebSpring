@@ -36,5 +36,9 @@ public class AdminService {
 			return adminDao.update(admin);
 		}
 	}
+
+	public boolean delete(int idAd) {
+		return adminDao.delete(idAd);
+	}
 	
 }
