@@ -2,6 +2,7 @@ package com.novellius.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,11 @@ public class AdminDaoImpl implements AdminDao {
 		getSession().save(admin);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Admin> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getSession().createQuery("from Admin");
+		return query.list();
 	}
 
 	@Override
