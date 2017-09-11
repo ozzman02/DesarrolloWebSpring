@@ -2,26 +2,28 @@ package com.novellius.dao;
 
 import java.util.List;
 
-import javax.sql.DataSource;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.novellius.pojo.Admin;
-import com.novellius.pojo.AdminRowMapper;
 
+@Transactional
+@Repository
 public class AdminDaoImpl implements AdminDao {
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
+	
 	@Override
 	public void save(Admin admin) {
-		// TODO Auto-generated method stub
-		
+		getSession().save(admin);
 	}
 
 	@Override

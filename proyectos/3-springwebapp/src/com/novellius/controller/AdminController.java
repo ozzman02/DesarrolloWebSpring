@@ -34,7 +34,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/save", method = RequestMethod.POST)
 	public String handleAdmin(@ModelAttribute("admin") Admin adminForm, Model model, RedirectAttributes ra) {
-		
+		adminService.save(adminForm);
 		return "redirect:/admin";
 	}
 	
