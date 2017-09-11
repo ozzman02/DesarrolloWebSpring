@@ -2,9 +2,11 @@ package com.novellius.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,23 +29,35 @@ public class AdminDaoImpl implements AdminDao {
 		getSession().save(admin);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Admin> findAll() {
+		
+		/*
+		 *  Usando HQL
+		 */
 		Query query = getSession().createQuery("from Admin");
 		return query.list();
 	}
 
 	@Override
 	public Admin findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		/*
+		 *  Usando Criteria
+		 */
+		Criteria criteria = getSession().createCriteria(Admin.class);
+		criteria.add(Restrictions.eq("idAd", id));
+		return (Admin) criteria.uniqueResult();
 	}
 
+	
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Admin> findByNombre(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = getSession().createCriteria(Admin.class);
+		criteria.add(Restrictions.like("nombre", "%" + nombre + "%"));
+		return criteria.list();
 	}
 
 	@Override
