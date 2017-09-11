@@ -34,7 +34,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/save", method = RequestMethod.POST)
 	public String handleAdmin(@ModelAttribute("admin") Admin adminForm, Model model, RedirectAttributes ra) {
-		adminService.save(adminForm);
+		adminService.saveOrUpdate(adminForm);
 		ra.addFlashAttribute("resultado", "Cambios realizados con éxito");
 		return "redirect:/admin";
 	}
@@ -48,7 +48,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin/{idAd}/delete")
 	public String delete(@PathVariable("idAd") int idAd, RedirectAttributes ra) {
-		
+		adminService.delete(idAd);
 		return "redirect:/admin";
 	}
 	

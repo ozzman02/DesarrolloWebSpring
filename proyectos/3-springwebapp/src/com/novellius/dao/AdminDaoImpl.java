@@ -62,16 +62,12 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public void update(Admin admin) {
-		// TODO Auto-generated method stub
-		
+		getSession().update(admin);
 	}
 
 	@Override
-	public void delete(int idAd) {
-		// TODO Auto-generated method stub
-		
+	public void delete(Admin admin) {
+		getSession().delete(admin);
 	}
 	
-	
-
 }

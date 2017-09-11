@@ -6,16 +6,16 @@ import com.novellius.pojo.Admin;
 
 public interface AdminDao {
 	
-	public void save(Admin admin);
+	void save(Admin admin);
 	
-	public List<Admin> findAll();
+	List<Admin> findAll();
 	
-	public Admin findById(int id);
+	Admin findById(int id);
 	
-	public List<Admin> findByNombre(String nombre);
+	List<Admin> findByNombre(String nombre);
 	
-	public void update(Admin admin);
+	void update(Admin admin);
 	
-	public void delete(int idAd);
+	void delete(Admin admin);
 	
 }
