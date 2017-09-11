@@ -2,8 +2,17 @@ package com.novellius.pojo;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Admin")
 public class Admin {
 	
+	@Id
+	@GeneratedValue
 	private int idAd;
 	
 	private String nombre;
