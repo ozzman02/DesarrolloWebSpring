@@ -1,11 +1,17 @@
 package com.novellius.pojo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table(name="Direccion")
 public class Direccion {
+	
+	@Id
+	@GeneratedValue
+	private int idDir;
 	
 	private String calle;
 	
@@ -14,32 +20,32 @@ public class Direccion {
 	public Direccion() {}
 	
 	public Direccion(String calle, String cp) {
-		super();
 		this.calle = calle;
-		this.cp = cp;
-	}
-	
-	public String getCalle() {
-		return calle;
-	}
-	
-	@Autowired
-	public void setCalle(@Value("Santa Ana") String calle) {
-		this.calle = calle;
-	}
-	
-	public String getCp() {
-		return cp;
-	}
-	
-	@Autowired
-	public void setCp(@Value("99999") String cp) {
 		this.cp = cp;
 	}
 
-	@Override
-	public String toString() {
-		return "Direccion [calle=" + calle + ", cp=" + cp + "]";
+	public int getIdDir() {
+		return idDir;
+	}
+
+	public void setIdDir(int idDir) {
+		this.idDir = idDir;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public String getCp() {
+		return cp;
+	}
+
+	public void setCp(String cp) {
+		this.cp = cp;
 	}
 	
 }
