@@ -2,6 +2,7 @@ package com.novellius.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +21,7 @@ public class Direccion {
 	private String cp;
 	
 	@ManyToOne
-	@JoinColumn(name="idAd")
+	@JoinColumn(name = "idAd")
 	private Admin admin;
 	
 	public Direccion() {}

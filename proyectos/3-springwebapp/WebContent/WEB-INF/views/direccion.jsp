@@ -13,11 +13,6 @@
 		<h1>Direccion.jsp</h1>
 		<sf:form action="${pageContext.request.contextPath}/direccion/save" method="post" commandName="direccion">
 			<table>
-				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
-				<%--<c:if test="${admin.idAd ne 0 }">
-					<sf:input path="idAd" type="hidden"/>
-					<sf:input path="fechaCreacion" type="hidden"/>
-				</c:if>--%>
 				<tr>
 					<td>Calle</td>
 					<td><sf:input path="calle" type="text"/></td>
@@ -33,10 +28,8 @@
 			</table>
 		</sf:form><br/>
 		<c:out value="${resultado}"></c:out><br/><br/>
-		<%--<c:forEach items="${admins}" var="admin">
-			<c:out value="${admin}"></c:out>
-			<a href='<c:url value="/admin/${admin.idAd}/update" />'>Actualizar</a>
-			<a class="confirm" href='<c:url value="/admin/${admin.idAd}/delete" />'>Eliminar</a><br/>
-		</c:forEach>--%>
+		<c:forEach items="${direcciones}" var="direccion">
+			<c:out value="${direccion}" /><br/>
+		</c:forEach>
 	</body>
 </html>
