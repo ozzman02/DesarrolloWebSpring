@@ -1,10 +1,12 @@
 package com.novellius.pojo;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,12 @@ public class Admin {
 	private String cargo;
 	
 	private Timestamp fechaCreacion;
+	
+	/*
+	 * mappedBy indica el owner de la relacion
+	 */
+	@OneToMany(mappedBy = "admin")
+	private Set<Direccion> direcciones;
 	
 	public Admin() {}
 
@@ -59,6 +67,14 @@ public class Admin {
 
 	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+	
+	public Set<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(Set<Direccion> direcciones) {
+		this.direcciones = direcciones;
 	}
 
 	@Override

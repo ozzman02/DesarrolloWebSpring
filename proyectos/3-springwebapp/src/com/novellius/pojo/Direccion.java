@@ -3,6 +3,8 @@ package com.novellius.pojo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,10 @@ public class Direccion {
 	private String calle;
 	
 	private String cp;
+	
+	@ManyToOne
+	@JoinColumn(name="idAd")
+	private Admin admin;
 	
 	public Direccion() {}
 	
@@ -46,6 +52,19 @@ public class Direccion {
 
 	public void setCp(String cp) {
 		this.cp = cp;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	@Override
+	public String toString() {
+		return "Direccion [idDir=" + idDir + ", calle=" + calle + ", cp=" + cp + "]";
 	}
 	
 }
