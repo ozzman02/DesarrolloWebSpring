@@ -8,30 +8,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
 		<script type="text/javascript" src='<c:url value="/res/js/jquery.js" />'></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function() {
-				jQuery(".confirm").on("click", function() {
-					return confirm("Si eliminas este elemento no se podrá recuperar. ¿Continuar?");
-				});
-			});
-		</script>
 	</head>
 	<body>
-		<h1>Admin.jsp</h1>
-		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
+		<h1>Direccion.jsp</h1>
+		<sf:form action="${pageContext.request.contextPath}/direccion/save" method="post" commandName="direccion">
 			<table>
 				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
-				<c:if test="${admin.idAd ne 0 }">
+				<%--<c:if test="${admin.idAd ne 0 }">
 					<sf:input path="idAd" type="hidden"/>
 					<sf:input path="fechaCreacion" type="hidden"/>
-				</c:if>
+				</c:if>--%>
 				<tr>
-					<td>Nombre</td>
-					<td><sf:input path="nombre" type="text"/></td>
+					<td>Calle</td>
+					<td><sf:input path="calle" type="text"/></td>
 				</tr>
 				<tr>
-					<td>Cargo</td>
-					<td><sf:input path="cargo" type="text"/></td>
+					<td>C.P.</td>
+					<td><sf:input path="cp" type="text"/></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -40,11 +33,10 @@
 			</table>
 		</sf:form><br/>
 		<c:out value="${resultado}"></c:out><br/><br/>
-		<c:forEach items="${admins}" var="admin">
+		<%--<c:forEach items="${admins}" var="admin">
 			<c:out value="${admin}"></c:out>
-			<a href='<c:url value="/direccion/${admin.idAd}" />'>Direcciones</a>
 			<a href='<c:url value="/admin/${admin.idAd}/update" />'>Actualizar</a>
 			<a class="confirm" href='<c:url value="/admin/${admin.idAd}/delete" />'>Eliminar</a><br/>
-		</c:forEach>
+		</c:forEach>--%>
 	</body>
 </html>
