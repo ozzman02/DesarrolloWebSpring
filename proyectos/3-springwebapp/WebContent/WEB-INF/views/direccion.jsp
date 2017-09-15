@@ -10,6 +10,7 @@
 		<script type="text/javascript" src='<c:url value="/res/js/jquery.js" />'></script>
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 		<h1>Direccion.jsp</h1>
 		<sf:form action="${pageContext.request.contextPath}/direccion/save" method="post" commandName="direccion">
 			<table>

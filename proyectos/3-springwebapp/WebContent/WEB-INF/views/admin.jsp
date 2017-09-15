@@ -17,6 +17,7 @@
 		</script>
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 		<h1>Admin.jsp</h1>
 		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 			<table>

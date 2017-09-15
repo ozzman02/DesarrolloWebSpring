@@ -8,6 +8,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 		<h1>Index.jsp</h1>
 		<a href='<c:url value="/about" />'>Acerca de</a><br/>
 		<a href='<c:url value="/admin" />'>Gestionar administradores</a><br/><br/>
