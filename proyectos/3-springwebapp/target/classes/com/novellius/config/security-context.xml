@@ -18,13 +18,19 @@
 		<security:logout invalidate-session="true" logout-url="/logout" />
 	</security:http>
 
-	<security:authentication-manager>
+	<!--  <security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
 				<security:user name="pepe" authorities="ROLE_ADMIN" password="1234" />
 				<security:user name="juan" authorities="ROLE_EMP" password="1234" />
 			</security:user-service>
 		</security:authentication-provider>
+	</security:authentication-manager> -->
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource" />
+		</security:authentication-provider>
 	</security:authentication-manager>
-
+	
 </beans>
