@@ -5,8 +5,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<security:http use-expressions="true">
-		<security:intercept-url pattern="/admin/**"
-			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/about" access="isAuthenticated()" />
+		<security:intercept-url pattern="/admin" access="isAuthenticated()" />
+		<security:intercept-url pattern="/admin/**" access="hasAnyRole({'ROLE_ADMIN', 'ROLE_ROOT'})" />
+		<security:intercept-url pattern="/direccion/**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login />
 		<!--  <security:csrf disabled="true" /> -->
 	</security:http>
@@ -14,10 +18,8 @@
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="pepe" authorities="ROLE_ADMIN"
-					password="1234" />
-				<security:user authorities="ROLE_USER" name="juan"
-					password="1234" />
+				<security:user name="pepe" authorities="ROLE_ADMIN" password="1234" />
+				<security:user name="juan" authorities="ROLE_EMP" password="1234" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
