@@ -15,6 +15,7 @@
 		<security:form-login login-page="/login"
 			password-parameter="clave" username-parameter="usuario"
 			authentication-failure-url="/login?error=true" />
+		<security:logout invalidate-session="true" logout-url="/logout" />
 	</security:http>
 
 	<security:authentication-manager>
