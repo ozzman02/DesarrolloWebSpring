@@ -10,7 +10,7 @@
 
 <sec:authorize access="isAuthenticated()">
 	Usuario ha iniciado sesión como: <sec:authentication property="principal" var="principal"/>
-	<c:set var="username" value="${principal.username}" />
+	<c:set var="username" value="${principal}" />
 	<c:out value="${username}"></c:out><br/>
 	<a href="<c:url value='/logout'/>">Cerrar sesión</a>
 </sec:authorize>
