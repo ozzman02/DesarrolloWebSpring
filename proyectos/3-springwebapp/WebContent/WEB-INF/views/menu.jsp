@@ -14,3 +14,5 @@
 	<c:out value="${username}"></c:out><br/>
 	<a href="<c:url value='/logout'/>">Cerrar sesión</a>
 </sec:authorize>
+
+<a href='<c:url value="/usuario" />'>Registrar usuario</a><br/>

@@ -1,5 +1,7 @@
 package com.novellius.dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,6 +28,17 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		Criteria criteria = getSession().createCriteria(Usuario.class)
 				.add(Restrictions.eq("usuario", usuario));
 		return (Usuario) criteria.uniqueResult();
+	}
+
+	@Override
+	public void save(Usuario usuario) {
+		getSession().save(usuario);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Usuario> findAll() {
+		return getSession().createQuery("from Usuario").list();
 	}
 
 }
