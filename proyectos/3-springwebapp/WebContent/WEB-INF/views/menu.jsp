@@ -8,7 +8,14 @@
 	Por favor inicia sesión
 </sec:authorize>
 
-<sec:authorize access="isAuthenticated()">
+<sec:authorize access="isRememberMe()">
+	Usuario ha iniciado sesión como: <sec:authentication property="principal" var="principal"/>
+	<c:set var="username" value="${principal.username}" />
+	<c:out value="${username}"></c:out><br/>
+	<a href="<c:url value='/logout'/>">Cerrar sesión</a>
+</sec:authorize>
+
+<sec:authorize access="isFullyAuthenticated()">
 	Usuario ha iniciado sesión como: <sec:authentication property="principal" var="principal"/>
 	<c:set var="username" value="${principal}" />
 	<c:out value="${username}"></c:out><br/>

@@ -15,11 +15,13 @@
 		<security:intercept-url pattern="/direccion/**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		
-		<security:form-login login-page="/login"
-			password-parameter="clave" username-parameter="usuario"
+		<security:form-login login-page="/login" password-parameter="clave" username-parameter="usuario"
 			authentication-failure-url="/login?error=true" />
+			
 		<security:logout invalidate-session="true" logout-url="/logout" />
-	
+
+		<security:remember-me token-validity-seconds="10000" user-service-ref="customUserDetailsService" />
+		
 	</security:http>
 
 	<bean id="customAuthenticationProvider" class="com.novellius.config.CustomAuthenticationProvider"></bean>
