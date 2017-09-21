@@ -26,6 +26,8 @@
 	
 	<bean id="customUserDetailsService" class="com.novellius.config.CustomUserDetailService"></bean>
 
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"></bean>
+	
 	<security:authentication-manager>
 		<security:authentication-provider ref="customAuthenticationProvider"></security:authentication-provider>
 	</security:authentication-manager>
