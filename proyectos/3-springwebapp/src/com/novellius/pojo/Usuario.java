@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Usuario")
@@ -15,10 +18,14 @@ public class Usuario {
 	@GeneratedValue
 	private int idUsr;
 	
+	@NotEmpty
 	private String usuario;
 	
+	@NotEmpty
+	@Size(min=3)
 	private String clave;
 	
+	@NotEmpty
 	private String permiso;
 	
 	private Timestamp fechaCreacion;

@@ -1,8 +1,11 @@
 package com.novellius.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,10 +28,18 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/usuario/save", method = RequestMethod.POST)
-	public String registrar(@ModelAttribute("usuario") Usuario usuario, Model model, RedirectAttributes ra) {
+	public String registrar(@ModelAttribute("usuario") @Valid Usuario usuario, 
+			BindingResult result, Model model, RedirectAttributes ra) {
+		
+		if (result.hasErrors()) {
+			return "usuario"; 
+		}
+		
 		usuarioService.save(usuario);
 		ra.addFlashAttribute("resultado", "Cambios realizados con éxito");
+		
 		return "redirect:/usuario";
 	}
 	
 }
+ 

@@ -16,15 +16,24 @@
 			<table>
 				<tr>
 					<td>Usuario</td>
-					<td><sf:input path="usuario" type="text"/></td>
+					<td>
+						<sf:input path="usuario" type="text"/>
+						<sf:errors path="usuario" cssStyle='color:red'></sf:errors>
+					</td>
 				</tr>
 				<tr>
 					<td>Contraseña</td>
-					<td><sf:input path="clave" type="password"/></td>
+					<td>
+						<sf:input path="clave" type="password"/>
+						<sf:errors path="clave" cssStyle='color:red'></sf:errors>
+					</td>
 				</tr>
 				<tr>
 					<td>Permiso</td>
-					<td><sf:input path="permiso" type="text"/></td>
+					<td>
+						<sf:input path="permiso" type="text"/>
+						<sf:errors path="permiso" cssStyle='color:red'></sf:errors>
+					</td>
 				</tr>
 				<tr>
 					<td></td>
