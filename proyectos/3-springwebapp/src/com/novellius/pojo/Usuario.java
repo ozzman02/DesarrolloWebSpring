@@ -18,14 +18,14 @@ public class Usuario {
 	@GeneratedValue
 	private int idUsr;
 	
-	@NotEmpty
+	@NotEmpty(message=Constants.NOT_EMPTY)
 	private String usuario;
 	
-	@NotEmpty
-	@Size(min=3)
+	@NotEmpty(message=Constants.NOT_EMPTY)
+	@Size(min=3, message=Constants.SIZE)
 	private String clave;
 	
-	@NotEmpty
+	@NotEmpty(message=Constants.NOT_EMPTY)
 	private String permiso;
 	
 	private Timestamp fechaCreacion;
