@@ -10,6 +10,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.novellius.pojo.valid.PersistenceGroup;
+import com.novellius.pojo.valid.SpringFormGroup;
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
@@ -18,14 +21,14 @@ public class Usuario {
 	@GeneratedValue
 	private int idUsr;
 	
-	@NotEmpty(message=Constants.NOT_EMPTY)
+	@NotEmpty(message=Constants.NOT_EMPTY, groups={PersistenceGroup.class, SpringFormGroup.class})
 	private String usuario;
 	
-	@NotEmpty(message=Constants.NOT_EMPTY)
-	@Size(min=3, message=Constants.SIZE)
+	@NotEmpty(message=Constants.NOT_EMPTY, groups={PersistenceGroup.class, SpringFormGroup.class})
+	@Size(min=3, max=15, message=Constants.SIZE, groups={SpringFormGroup.class})
 	private String clave;
 	
-	@NotEmpty(message=Constants.NOT_EMPTY)
+	@NotEmpty(message=Constants.NOT_EMPTY, groups={PersistenceGroup.class, SpringFormGroup.class})
 	private String permiso;
 	
 	private Timestamp fechaCreacion;
