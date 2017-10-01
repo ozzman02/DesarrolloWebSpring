@@ -25,7 +25,10 @@ public class IndexController {
 	 * Se debe usar el metodo setComplete()
 	 */
 	@RequestMapping("/about")
-	public String showAbout(SessionStatus sessionStatus) {
+	public String showAbout(SessionStatus sessionStatus) throws Exception {
+		if (true) {
+			throw new Exception();
+		}
 		sessionStatus.setComplete();
 		return "about";
 	}
