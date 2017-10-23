@@ -19,6 +19,10 @@
 	<body>
 		<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 		<h1>Admin.jsp</h1>
+		<form action="${pageContext.request.contextPath}/admin/json/search">
+			<input type="text" name="term"/>
+			<input type="submit" value="test json"/>
+		</form><br/>
 		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 			<table>
 				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
