@@ -7,11 +7,23 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
-		<script type="text/javascript" src='<c:url value="/res/js/jquery.js" />'></script>
+		
+		<!-- Load jQuery UI CSS  -->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" />
+		<!-- Load jQuery JS -->
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<!-- Load jQuery UI Main JS  -->
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		
 		<script type="text/javascript">
 			jQuery(document).ready(function() {
 				jQuery(".confirm").on("click", function() {
 					return confirm("Si eliminas este elemento no se podrá recuperar. ¿Continuar?");
+				});
+				var path = $("#path").val();
+				jQuery("#busqueda").autocomplete({
+					source: path + "/admin/json/search"
 				});
 			});
 		</script>
@@ -19,10 +31,10 @@
 	<body>
 		<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 		<h1>Admin.jsp</h1>
-		<form action="${pageContext.request.contextPath}/admin/json/search">
-			<input type="text" name="term"/>
-			<input type="submit" value="test json"/>
-		</form><br/>
+		
+		<input type="hidden" id="path" value="${pageContext.request.contextPath}"/>
+		Buscar administradores: <input type="text" id="busqueda"/><br/>
+		
 		<sf:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 			<table>
 				<!-- <input name="estado" type="text" /> En el controller usar @RequestParam -->
