@@ -41,5 +41,9 @@ public class AdminService {
 		Admin admin = adminDao.findById(idAd);
 		adminDao.delete(admin);
 	}
+
+	public List<Admin> findAllLikeNombre(String nombreAdmin) {
+		return adminDao.findByNombre(nombreAdmin);
+	}
 	
 }
