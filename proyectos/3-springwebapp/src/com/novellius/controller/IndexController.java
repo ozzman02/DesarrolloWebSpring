@@ -24,6 +24,7 @@ public class IndexController {
 	 * SessionStatus se usa para limpiar un attributo que se haya puesto en la Session.
 	 * Se debe usar el metodo setComplete()
 	 */
+	@SuppressWarnings("unused")
 	@RequestMapping("/about")
 	public String showAbout(SessionStatus sessionStatus) throws Exception {
 		if (true) {
