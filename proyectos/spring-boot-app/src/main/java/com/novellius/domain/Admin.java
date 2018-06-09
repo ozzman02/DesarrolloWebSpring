@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="admin")
 public class Admin {
@@ -21,6 +23,7 @@ public class Admin {
 	
 	private String cargo;
 	
+	@JsonIgnore
 	private Timestamp fechaCreacion;
 	
 	/*
